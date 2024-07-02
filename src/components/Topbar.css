@@ -1,0 +1,46 @@
+#topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    /* border-bottom: rgb(65, 65, 65) 1px solid; */
+
+    color: white;
+    background-color: rgb(48, 48, 48);
+
+}
+
+
+#topbar .logo {
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-decoration: none;
+    cursor: pointer;
+
+    margin: 4px 0 0 1rem;
+    font-weight: 300;
+    color: white;
+}
+
+
+#topbar nav {
+    margin-right: 1rem;
+    text-decoration: none;
+    
+    display: flex;
+    flex-direction: row;
+
+    margin: 7px 0;
+
+    color: white;
+}
+
+#topbar nav p {
+    cursor: pointer;
+    margin: 0 1rem 0 0;
+}
+
+#topbar nav p:hover {
+    color: rgb(226, 106, 200);
+}
