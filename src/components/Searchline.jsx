@@ -4,7 +4,7 @@ import { getData } from './helpers';
 
 import './Searchline.css';
 
-function Searchline({code, setCode, setCurrent}) {
+function Searchline({setCode, setCurrent}) {
 	const [message, setMessage] = useState('');
 	
 	function search(e) {
@@ -15,11 +15,15 @@ function Searchline({code, setCode, setCurrent}) {
 				setMessage('not found : ' + data.scode);
 				return;
 			}
+			if (data.found==='user'){
+				setCode(scode);
+				setCurrent('user');
+			}
 		});
 	}
 	
 	return (
-		<div id="searchDiv">
+		<div id="searchDiv" className='formdiv'>
 			<form onSubmit={search}>
 				<input type="text" placeholder="Search..." onChange={()=>{setMessage('')}}/>
 				<button>Search</button>

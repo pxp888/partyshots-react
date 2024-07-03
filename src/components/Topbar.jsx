@@ -1,4 +1,4 @@
-import LogoutButton from './accounts/Logout';
+import LogoutButton from './accounts/LogoutButton';
 import Searchline from './Searchline';
 
 import './Topbar.css';
@@ -23,7 +23,10 @@ function Topbar({setCurrent, uname, setUname, code, setCode}) {
 	return (
 		<div id="topbar">
 			<p className="logo" onClick={logoClicked}>myApp</p>
-			<Searchline code={code} setCode={setCode} setCurrent={setCurrent} />
+			<Searchline 
+				setCode={setCode} 
+				setCurrent={setCurrent} 
+			/>
 			{uname === '' ? 
 				<nav>
 					<p onClick={login}>Login</p>

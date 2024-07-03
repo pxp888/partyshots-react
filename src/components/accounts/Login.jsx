@@ -38,7 +38,7 @@ function Login({setCurrent, setUname}) {
         ).catch(error => {
             setMessage('Login Failed')
             console.log(error);
-        });        
+        });
     }
 
     return (
