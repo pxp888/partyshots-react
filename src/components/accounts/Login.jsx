@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import './Login.css';
 
+const baseURL = process.env.REACT_APP_API_URL;
+
 function Login({setCurrent, setUname}) {
     const [message, setMessage] = useState('');
 
@@ -15,7 +17,7 @@ function Login({setCurrent, setUname}) {
             password: data.get('password')
         };
 
-        axios.post('http://localhost:8000/token/', user, 
+        axios.post(baseURL+ 'token/', user, 
             {headers: {
                 'Content-Type': 'application/json'
             },withCredentials: true}

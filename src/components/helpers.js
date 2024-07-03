@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:8000/';
-
+const baseURL = process.env.REACT_APP_API_URL;
 
 function getData(url, param, callback) {
     let furl = baseURL + url;
@@ -13,7 +12,6 @@ function getData(url, param, callback) {
         console.log(error);
     });
 }
-
 
 function postData(url, param, callback) {
     let furl = baseURL + url;
