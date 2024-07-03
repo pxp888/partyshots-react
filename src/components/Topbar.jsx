@@ -7,7 +7,13 @@ import './Topbar.css';
 function Topbar({setCurrent, uname, setUname, setSword}) {
 	function logoClicked(e) {
 		e.preventDefault();
-		setCurrent('landing');
+		if (uname !== ''){
+			setSword(uname);
+			setCurrent('userview');
+		}
+		else {
+			setCurrent('landing');
+		}
 	}
 	
 	function login(e) {

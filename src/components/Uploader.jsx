@@ -8,7 +8,7 @@ function md5(blob) {
 }
 
 
-function Uploader({code}) {
+function Uploader({code, refreshAlbum}) {
 
 	function uploadFile(file) {
 		const chunkSize = 1024 * 1024;
@@ -33,7 +33,9 @@ function Uploader({code}) {
 					'hash': hash,
 				};
 				postData('api/upload/', msg, (data) => {
-					console.log(data);
+					if(data.message==='up'){
+						refreshAlbum();
+					}
 				});
 			}
 		}

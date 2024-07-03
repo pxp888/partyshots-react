@@ -20,7 +20,7 @@ function Userview({sword, setSword, setCurrent, uname}) {
 
     function createAlbum(event) {
         event.preventDefault();
-        const abname = event.target.albumname.value;
+        const abname = event.target.abname.value;
         postData('api/abcreate/', {sword: sword, abname: abname}, (data) => {
             if (data.message==='ok'){
                 setAlbums(data.albums);

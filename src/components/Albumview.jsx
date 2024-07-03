@@ -16,19 +16,21 @@ function Albumview({code, uname}) {
 		thumbnail: 'thumbnail',
 	});
 
-	useEffect(() => {
+	function refreshAlbum() {
 		getData('api/getalbum/', {code: code}, (data) => {
-			if (data.code===code){
+			if (data.code === code){
 				setInfo(data);
 			}
 		});
 
 		getData('api/getshots/', {code: code}, (data) => {
-			if (data.code===code){
+			if (data.code === code){
 				setShots(data.shots);
 			}
 		});
-	}, [code]);
+	}
+
+	useEffect(() => { refreshAlbum(); }, [code]);
 
 
 	return (
@@ -42,7 +44,7 @@ function Albumview({code, uname}) {
 				<p>{info.thumbnail}</p>
 			</div>
 
-			{uname !== '' && ( <Uploader code={code}  /> )}
+			{uname !== '' && ( <Uploader code={code} refreshAlbum={refreshAlbum} /> )}
 
 			<div className='bigImage'>
 				<h1>big: {big}</h1>    
