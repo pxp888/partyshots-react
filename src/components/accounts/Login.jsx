@@ -29,7 +29,7 @@ function Login({setCurrent, setUname}) {
 
                 setMessage('Login Successful');
                 setUname(data.get('username'));
-                setCurrent('user');
+                setCurrent('newlogin');
             }
             else {
                 setMessage('Invalid Credentials');

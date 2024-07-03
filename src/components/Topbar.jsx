@@ -4,7 +4,7 @@ import Searchline from './Searchline';
 import './Topbar.css';
 
 
-function Topbar({setCurrent, uname, setUname, code, setCode}) {
+function Topbar({setCurrent, uname, setUname, setSword}) {
 	function logoClicked(e) {
 		e.preventDefault();
 		setCurrent('landing');
@@ -24,8 +24,8 @@ function Topbar({setCurrent, uname, setUname, code, setCode}) {
 		<div id="topbar">
 			<p className="logo" onClick={logoClicked}>myApp</p>
 			<Searchline 
-				setCode={setCode} 
-				setCurrent={setCurrent} 
+				setSword={setSword}
+				setCurrent={setCurrent}
 			/>
 			{uname === '' ? 
 				<nav>
@@ -36,7 +36,7 @@ function Topbar({setCurrent, uname, setUname, code, setCode}) {
 				<nav>
 					<p>{uname}</p>
 					<LogoutButton setUname={setUname} setCurrent={setCurrent} />
-				</nav>	
+				</nav>
 			}
 		</div>
 	)

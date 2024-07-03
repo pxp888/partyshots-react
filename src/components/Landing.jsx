@@ -18,7 +18,6 @@ function Landing() {
 			<h1>Hello, World!</h1>
 			<p>{message}</p>
 			<button onClick={handleClick}>Click me!</button>
-
 		</div>
 	);
 }

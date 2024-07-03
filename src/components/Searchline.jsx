@@ -1,25 +1,29 @@
-import { useState } from 'react';
+import { useState,  } from 'react';
 
 import { getData } from './helpers';
 
 import './Searchline.css';
 
-function Searchline({setCode, setCurrent}) {
+function Searchline({setSword, setCurrent }) {
 	const [message, setMessage] = useState('');
 	
 	function search(e) {
 		e.preventDefault();
-		let scode = e.target[0].value;
-		getData('api/search/', {scode:scode}, (data) => {
-			if (data.found==='not found'){
-				setMessage('not found : ' + data.scode);
-				return;
-			}
+		let sword = e.target[0].value;
+		getData('api/search/', {sword: sword}, (data) => {
 			if (data.found==='user'){
-				setCode(scode);
-				setCurrent('user');
+				setSword(sword);
+				setCurrent('userview');
+			}
+			else if (data.found==='album'){
+				setSword(sword);
+				setCurrent('albumview');
+			}
+			else if (data.found==='nada') {
+				setMessage('Nothing found');
 			}
 		});
+		setSword(sword);
 	}
 	
 	return (
