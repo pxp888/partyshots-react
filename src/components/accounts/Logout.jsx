@@ -1,18 +1,21 @@
 import axios from 'axios';
 
+import { postData } from '../helpers';
+
 function LogoutButton({setUname, setCurrent}){
     function logout(e) {
 		e.preventDefault();
-		axios.post('http://localhost:8000/api/logout/', {
-			message: 'logout',
-		}).then(response => {
-			axios.defaults.headers.common['Authorization'] = null;
-			localStorage.removeItem('access_token');
-			localStorage.removeItem('refresh_token');
-			setUname('');
-			setCurrent('landing');
-		}).catch(error => { console.log(error); });
+
+		postData('api/logout/', {message: 'logout'}, (data) => {
+				axios.defaults.headers.common['Authorization'] = null;
+				localStorage.removeItem('access_token');
+				localStorage.removeItem('refresh_token');
+				setUname('');
+				setCurrent('landing');
+			});
 	};
+
+
 
     return (
         <p onClick={logout}>Logout</p>
@@ -20,3 +23,4 @@ function LogoutButton({setUname, setCurrent}){
 }
 
 export default LogoutButton;
+

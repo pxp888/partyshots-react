@@ -14,6 +14,7 @@ function Login({setCurrent, setUname}) {
             username: data.get('username'),
             password: data.get('password')
         };
+
         axios.post('http://localhost:8000/token/', user, 
             {headers: {
                 'Content-Type': 'application/json'
@@ -26,7 +27,7 @@ function Login({setCurrent, setUname}) {
 
                 setMessage('Login Successful');
                 setUname(data.get('username'));
-                setCurrent('home');
+                setCurrent('user');
             }
             else {
                 setMessage('Invalid Credentials');
@@ -35,7 +36,7 @@ function Login({setCurrent, setUname}) {
         ).catch(error => {
             setMessage('Login Failed')
             console.log(error);
-        });
+        });        
     }
 
     return (

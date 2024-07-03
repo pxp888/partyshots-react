@@ -1,0 +1,38 @@
+/* #searchDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+} */
+
+#searchDiv label {
+    margin: 0.25rem 1rem;
+    justify-self: right;
+    text-transform: lowercase;
+}
+
+#searchDiv input {
+    margin: 0.25rem 0rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(65, 65, 65);
+}
+
+#searchDiv input[type="text" i] {
+    padding: 4px;
+}
+
+#searchDiv button {
+    margin: 0.25rem .25rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    border: 1px solid rgb(65, 65, 65);
+    background-color: rgb(36, 36, 36);
+    color: white;
+    grid-column-start: 2;
+}
+
+#searchDiv p { 
+    margin: 0.25rem 1rem;
+    color: rgb(255, 196, 0);
+}

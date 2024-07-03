@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { postData } from '../helpers';
 
 function Register({setCurrent}) {
 	const [message, setMessage] = useState('');
 	function handleSubmit(event) {
 		event.preventDefault();
 		const data = new FormData(event.target);
-		axios.post('http://localhost:8000/api/register/', {
+
+		postData('api/register/', {
 			name: data.get('name'),
 			email: data.get('email'),
 			password: data.get('password'),
 			password_confirmation: data.get('password_confirmation')
-		}).then(response => {
-			setMessage(response.data.message);
-			if(response.data.message==='registered') {
+		}, (data) => {
+			setMessage(data.message);
+			if(data.message==='registered') {
 				setCurrent('login');
 			}
-		}).catch(error => {
-			console.log(error);
 		});
+
+
 	}
 
 	return (

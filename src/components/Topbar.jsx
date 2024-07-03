@@ -1,11 +1,10 @@
-import axios from 'axios';
 import LogoutButton from './accounts/Logout';
+import Searchline from './Searchline';
 
 import './Topbar.css';
 
 
-
-function Topbar({current, setCurrent, uname, setUname}) {
+function Topbar({setCurrent, uname, setUname, code, setCode}) {
 	function logoClicked(e) {
 		e.preventDefault();
 		setCurrent('landing');
@@ -24,6 +23,7 @@ function Topbar({current, setCurrent, uname, setUname}) {
 	return (
 		<div id="topbar">
 			<p className="logo" onClick={logoClicked}>myApp</p>
+			<Searchline code={code} setCode={setCode} setCurrent={setCurrent} />
 			{uname === '' ? 
 				<nav>
 					<p onClick={login}>Login</p>

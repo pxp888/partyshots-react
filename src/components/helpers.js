@@ -1,11 +1,26 @@
 import axios from 'axios';
 
-function getData(url, msg, callback) {
-	axios.post(url, msg)
+const baseURL = 'http://localhost:8000/';
+
+
+function getData(url, param, callback) {
+    let furl = baseURL + url;
+    axios.get(furl, { params: param })
+    .then(response => {
+        callback(response.data);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+
+function postData(url, param, callback) {
+    let furl = baseURL + url;
+	axios.post(furl, param)
 	.then(response => {
-		callback(null, response.data);})
+		callback(response.data);})
 	.catch(error => { console.log(error); });
 }
-	
 
-export { getData };
+export { getData, postData }

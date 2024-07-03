@@ -1,29 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
+import { getData, postData } from './helpers';
 
 function Landing() {
 	const [message, setMessage] = useState('');
 
 	useEffect(() => {
-		axios.get('http://localhost:8000/api/hello-world/')
-			.then(response => {
-				setMessage(response.data.message);
-			})
-			.catch(error => {
-				console.log(error);
-			});
+		getData('api/hello-world/', {}, (data) => { setMessage(data.message); });
 	}, []);
 
-
 	function handleClick() {
-		axios.post('http://localhost:8000/api/test/', { 
-			message: 'thing test' 
-		}).then(response => {
-			setMessage(response.data.message);
-		}).catch(error => { console.log(error); });
-		
+		postData('api/test/', { message: 'thing test' }, (data) => { setMessage(data.message); });
 	}
-
 
 	return (
 		<div>
