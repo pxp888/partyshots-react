@@ -3,20 +3,9 @@ import { getData } from './helpers';
 import Shot from './Shot';
 import Uploader from './Uploader';
 
-import blankimage from '../assets/blankimage.png'
-
 import './styles/Albumview.css';
 
 function Albumview({code, uname}) {
-	const [big, setBig] = useState({
-		code: 'code',
-		filename: 'filename',
-		link: null,
-		tlink: 'tlink',
-		created: 'created',
-		user: 'user',
-		album: 'album',
-	});
 	const [shots, setShots] = useState({});
 	const [info, setInfo] = useState({
 		name: 'name', 
@@ -25,10 +14,8 @@ function Albumview({code, uname}) {
 		created: 'created',
 		thumbnail: 'thumbnail',
 	});
+	const [big, setBig] = useState(-1);
 
-	const [showbig, setShowbig] = useState(false);
-
-	
 	function refreshAlbum() {
 		getData('api/getalbum/', {code: code}, (data) => {
 			if (data.code === code){
@@ -44,7 +31,6 @@ function Albumview({code, uname}) {
 	}
 
 	useEffect(() => { refreshAlbum(); }, [code]);
-
 
 	return (
 		<div id='albumview'>
@@ -63,21 +49,23 @@ function Albumview({code, uname}) {
 
 			{uname !== '' && ( <Uploader code={code} refreshAlbum={refreshAlbum} /> )}
 
-			{showbig && (
-				<div id='bigimage'>
-					{big.link === null ?  <img src={blankimage} alt='blank' />  : <img src={big.link} alt={big.filename} /> }
-				</div>
-			)}
-			
 			<div id='shotlist'>
 				{Object.keys(shots).map((shot, index) => {
 					return (
-						<Shot key={shot} code={shot} setBig={setBig}/> 
+						<Shot 
+							key={shot}
+							code={shot} 
+							big={big}
+							setBig={setBig} 
+							index={index}
+						/> 
 					)
 				})}
 			</div>
 		</div>
 	);
 }
+
+
 
 export default Albumview;

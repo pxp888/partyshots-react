@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { getData } from './helpers';
 
+import './styles/Shot.css';
+
+import Bigshot from './Bigshot';
+
 import blankimage from '../assets/blankimage.png'
 
-function Shot({code, setBig}) {
+
+function Shot({code, big, setBig, index}) {
 	const [info, setInfo] = useState({
 		code: 'code',
 		filename: 'filename',
@@ -22,17 +27,14 @@ function Shot({code, setBig}) {
 		});
 	}, [code]);
 
-	function handleClick(e) {
+	function shotClicked(e) {
 		e.preventDefault();
-		let binfo = info;
-		if (binfo.tlink === null){
-			binfo.link = null;
-		}
-		setBig(binfo);
+		setBig(index);
 	}
 	
 	return (
-		<div className='shot' onClick={handleClick}>			
+		<>
+		<div className='shot' onClick={shotClicked}>			
 			{!info.tlink ?  <img src={blankimage} alt='blank' />  : <img src={info.tlink} alt={info.filename} /> }
 			<div>
 				<div className='shotinfo'>
@@ -44,7 +46,13 @@ function Shot({code, setBig}) {
 					<p>{info.created}</p>
 				</div>
 			</div>
+			<div className="shotkiller">
+				
+			</div>
 		</div>
+		{big === index && ( <Bigshot link={info.link} big={big} setBig={setBig} /> )}
+
+		</>
 	);
 }
 

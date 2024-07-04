@@ -1,0 +1,60 @@
+.shot {
+    width: 250px;
+    height: 250px;
+
+    position: relative;
+
+    border: gray 1px solid;
+    margin: .25rem;
+    padding: 5px;
+
+    background-color: black;
+    color: white;
+}
+
+.shot img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.shot > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    background-color: black;
+    color: white;
+    opacity: 0.0;
+}
+
+.shotinfo {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.active {
+    background-color: yellow;
+}
+
+.shot > div:hover {
+    opacity: 0.7;
+}
+
+.shot .label {
+    font-weight: 200;
+    text-align: right;
+}
+
+.shot p {
+    margin: .3rem;
+    text-align: left;
+}
+
