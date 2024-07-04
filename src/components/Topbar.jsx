@@ -1,7 +1,7 @@
 import LogoutButton from './accounts/LogoutButton';
 import Searchline from './Searchline';
 
-import './Topbar.css';
+import './styles/Topbar.css';
 
 
 function Topbar({setCurrent, uname, setUname, setSword}) {
@@ -27,24 +27,27 @@ function Topbar({setCurrent, uname, setUname, setSword}) {
 	}
 
 	return (
-		<div id="topbar">
-			<p className="logo" onClick={logoClicked}>myApp</p>
-			<Searchline 
-				setSword={setSword}
-				setCurrent={setCurrent}
-			/>
-			{uname === '' ? 
-				<nav>
-					<p onClick={login}>Login</p>
-					<p onClick={register}>register</p>
-				</nav>
-				:
-				<nav>
-					<p>{uname}</p>
-					<LogoutButton setUname={setUname} setCurrent={setCurrent} />
-				</nav>
-			}
-		</div>
+		<>
+			<div id="topbar">
+				<p className="logo" onClick={logoClicked}>myApp</p>
+				<Searchline 
+					setSword={setSword}
+					setCurrent={setCurrent}
+				/>
+				{uname === '' ? 
+					<nav>
+						<p onClick={login}>Login</p>
+						<p onClick={register}>register</p>
+					</nav>
+					:
+					<nav>
+						<p>{uname}</p>
+						<LogoutButton setUname={setUname} setCurrent={setCurrent} />
+					</nav>
+				}
+			</div>
+			<div id="topspacer"></div>
+		</>
 	)
 };
 

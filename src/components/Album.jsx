@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getData } from './helpers';
 
-import './Album.css';
 
 function Album({code, setSword, setCurrent}) {
     const [info, setInfo] = useState({
@@ -25,12 +24,14 @@ function Album({code, setSword, setCurrent}) {
         setCurrent('albumview');
     }
 
+    
+
     return (
         <div className='album' onClick={handleClick}>
+            <img src={info.thumbnail} alt='album thumbnail' />
             <p>{info.name}</p>
-            <p>{info.thumbnail}</p>
+            <p>owner: {info.user}</p>
             <p>{info.created}</p>
-            <p>{info.code}</p>
         </div>
     );
 }

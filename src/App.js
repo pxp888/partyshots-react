@@ -32,6 +32,7 @@ function App() {
 				setUname={setUname}
 				setSword={setSword}
 			/>
+			<div className="topspacer"></div>
 			{current === 'landing' && <Landing />}
 			{current === 'login' && <Login setCurrent={setCurrent} setUname={setUname} />}
 			{current === 'register' && <Register setCurrent={setCurrent} />}

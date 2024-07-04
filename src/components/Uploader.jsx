@@ -54,7 +54,7 @@ function Uploader({code, refreshAlbum}) {
 
 
 	return (
-		<div className='uploader'>
+		<div id='uploader'>
 			<form className='formdiv' onSubmit={uploadFiles}>
 				<input type="text" placeholder='description' />
 				<input type='file' name='file' multiple/>

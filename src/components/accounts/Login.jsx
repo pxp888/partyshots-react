@@ -44,15 +44,17 @@ function Login({setCurrent, setUname}) {
     return (
         <>
             <div id="login" className="logform">
-                <h1>Login</h1>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="username">username</label>
-                    <input type="text" name="username" placeholder="Username" />
-                    <label htmlFor="password">password</label>
-                    <input type="password" name="password" placeholder="Password" />
-                    <button>Login</button>
-                </form>
-            {message!=='' && <p>{message}</p>}
+                <div>
+                    <h1>Login</h1>
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="username">username</label>
+                        <input type="text" name="username" placeholder="Username" />
+                        <label htmlFor="password">password</label>
+                        <input type="password" name="password" placeholder="Password" />
+                        <button>Login</button>
+                    </form>
+                    {message!=='' && <p>{message}</p>}
+                </div>
             </div>
         </>
     );

@@ -1,7 +1,11 @@
 .logform {
+    height: calc(100vh - 44px);
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    background-color: gainsboro;
 }
 
 .logform form {

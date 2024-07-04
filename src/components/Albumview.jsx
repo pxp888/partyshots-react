@@ -5,7 +5,7 @@ import Uploader from './Uploader';
 
 import blankimage from '../assets/blankimage.png'
 
-import './Albumview.css';
+import './styles/Albumview.css';
 
 function Albumview({code, uname}) {
 	const [big, setBig] = useState({
@@ -26,6 +26,8 @@ function Albumview({code, uname}) {
 		thumbnail: 'thumbnail',
 	});
 
+	const [showbig, setShowbig] = useState(false);
+
 	
 	function refreshAlbum() {
 		getData('api/getalbum/', {code: code}, (data) => {
@@ -45,23 +47,28 @@ function Albumview({code, uname}) {
 
 
 	return (
-		<div className='albumview'>
-			<p>Albumview</p>
-			<div>
-				<p>{info.name}</p>
-				<p>{info.user}</p>
-				<p>{info.created}</p>
-				<p>{info.code}</p>
-				<p>{info.thumbnail}</p>
+		<div id='albumview'>
+			<div id="abinfo">
+				<div>
+					<p className="label">name</p>
+					<p>{info.name}</p>
+					<p className="label">user</p>
+					<p>{info.user}</p>
+					<p className="label">created</p>
+					<p>{info.created}</p>
+					<p className="label">album code</p>
+					<p>{info.code}</p>
+				</div>
 			</div>
 
 			{uname !== '' && ( <Uploader code={code} refreshAlbum={refreshAlbum} /> )}
 
-			<div className='bigImage'>
-				<h1>big: {big.code}</h1>
-				{big.link === null ?  <img src={blankimage} alt='blank' />  : <img src={big.link} alt={big.filename} /> }
-			</div>
-
+			{showbig && (
+				<div id='bigimage'>
+					{big.link === null ?  <img src={blankimage} alt='blank' />  : <img src={big.link} alt={big.filename} /> }
+				</div>
+			)}
+			
 			<div id='shotlist'>
 				{Object.keys(shots).map((shot, index) => {
 					return (

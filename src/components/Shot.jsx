@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getData } from './helpers';
 
-import './Shot.css';
 import blankimage from '../assets/blankimage.png'
 
 function Shot({code, setBig}) {
@@ -35,11 +34,16 @@ function Shot({code, setBig}) {
 	return (
 		<div className='shot' onClick={handleClick}>			
 			{!info.tlink ?  <img src={blankimage} alt='blank' />  : <img src={info.tlink} alt={info.filename} /> }
-			<h3>{code}</h3>
-			<p>{info.filename}</p>
-			<p>{info.user}</p>
-			<p>{info.created}</p>
-			<p>{info.album}</p>
+			<div>
+				<div className='shotinfo'>
+					<p className="label">filename</p>
+					<p>{info.filename}</p>
+					<p className="label">user</p>
+					<p>{info.user}</p>
+					<p className="label">created</p>
+					<p>{info.created}</p>
+				</div>
+			</div>
 		</div>
 	);
 }

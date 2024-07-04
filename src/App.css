@@ -1,3 +1,7 @@
+:root {
+  background-color: rgb(32, 32, 32);
+}
+
 .App {
   text-align: center;
   font-family: Roboto, sans-serif;
@@ -42,13 +46,24 @@
   background-color: rgb(36, 36, 36);
   color: white;
   grid-column-start: 2;
+  transition: background-color 0.5s;
 }
 
 .formdiv button:focus {
   background-color: blue;
 }
 
+.formdiv button:hover {
+  background-color: blue;
+}
+
+
 .formdiv p { 
   margin: 0.25rem 1rem;
   color: gray;
+}
+
+
+.msgline {
+  margin: 0;
 }

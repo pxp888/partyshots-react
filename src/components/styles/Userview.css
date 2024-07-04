@@ -1,0 +1,28 @@
+#abmaker {
+    border: gray 1px solid;
+    border-radius: 0.25rem;
+    margin: 2px;
+
+    background-color: gainsboro;
+    color: black;
+}
+
+
+#albumlist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin: .5rem;
+}
+
+.album {
+    border: gray 1px solid;
+    margin: .25rem;
+    padding: .25rem;
+
+    background-color: black;
+    color: white
+}
+

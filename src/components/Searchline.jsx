@@ -2,7 +2,6 @@ import { useState,  } from 'react';
 
 import { getData } from './helpers';
 
-import './Searchline.css';
 
 function Searchline({setSword, setCurrent }) {
 	const [message, setMessage] = useState('');

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { getData, postData } from './helpers';
 
 import Album from './Album';
+import './styles/Userview.css';
+
 
 function Userview({sword, setSword, setCurrent, uname}) {
     const [message, setMessage] = useState('');
@@ -34,22 +36,19 @@ function Userview({sword, setSword, setCurrent, uname}) {
 
     return (
         <div>
-            <h1>Userview</h1>
-            <p>Search term: {sword}</p>
-            <p>{message}</p>
+            <p className='msgline'>{message}</p>
 
             {uname === sword && (
-                <div className="abmaker">
+                <div id="abmaker">
                     <form className="formdiv" onSubmit={createAlbum}>
                         <label htmlFor="abname">New Album Name: </label>
-                        <input type="text" name="abname" placeholder='album name' />
+                        <input type="text" name="abname" placeholder='album name' onChange={()=>{setMessage('');}} />
                         <button>Create Album</button>
                     </form>
                 </div>
             )}
 
-
-            <div className='albumlist'>
+            <div id='albumlist'>
                 {Object.keys(albums).map((album, index) => {
                     return (
                         <Album key={album} code={album} setSword={setSword} setCurrent={setCurrent}/>
