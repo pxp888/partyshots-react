@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getData } from './helpers';
+import { getData, postData } from './helpers';
 
 import './styles/Shot.css';
 
 import Bigshot from './Bigshot';
 
 import blankimage from '../assets/blankimage.png'
-
+import xbutton from '../assets/x.webp'
 
 function Shot({code, big, setBig, index}) {
 	const [info, setInfo] = useState({
@@ -31,12 +31,22 @@ function Shot({code, big, setBig, index}) {
 		e.preventDefault();
 		setBig(index);
 	}
+
+	function killShot(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		console.log('kill', code);
+		postData('api/killshot/', {code: code}, (data) => {
+			if (data.message==='deleted') {this.remove();}
+			else {console.log(data.message);}
+		});
+	}
 	
 	return (
 		<>
 		<div className='shot' onClick={shotClicked}>			
 			{!info.tlink ?  <img src={blankimage} alt='blank' />  : <img src={info.tlink} alt={info.filename} /> }
-			<div>
+			<div className='holder'>
 				<div className='shotinfo'>
 					<p className="label">filename</p>
 					<p>{info.filename}</p>
@@ -45,9 +55,9 @@ function Shot({code, big, setBig, index}) {
 					<p className="label">created</p>
 					<p>{info.created}</p>
 				</div>
-			</div>
-			<div className="shotkiller">
-				
+				<div className="shotkiller" onClick={killShot}>
+					<img src={xbutton} alt="close" />
+				</div>
 			</div>
 		</div>
 		{big === index && ( <Bigshot link={info.link} big={big} setBig={setBig} /> )}

@@ -30,6 +30,12 @@ function Albumview({code, uname}) {
 		});
 	}
 
+	function killshot(i) {
+		const newshots = {...shots};
+		delete newshots[i];
+		setShots(newshots);
+	}
+
 	useEffect(() => { refreshAlbum(); }, [code]);
 
 	return (
@@ -58,6 +64,7 @@ function Albumview({code, uname}) {
 							big={big}
 							setBig={setBig} 
 							index={index}
+							
 						/> 
 					)
 				})}
