@@ -29,7 +29,7 @@ function Topbar({setCurrent, uname, setUname, setSword}) {
 	return (
 		<>
 			<div id="topbar">
-				<p className="logo" onClick={logoClicked}>myApp</p>
+				<p className="logo" onClick={logoClicked}>partyShots</p>
 				<Searchline 
 					setSword={setSword}
 					setCurrent={setCurrent}

@@ -1,7 +1,5 @@
 import React, { useEffect, useState,  } from 'react';
 
-// import { getData } from './components/helpers';
-
 import Topbar from './components/Topbar';
 import Landing from './components/Landing';
 import Login from './components/accounts/Login';
