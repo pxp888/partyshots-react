@@ -1,0 +1,12 @@
+#shotlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.shot {
+    margin: 4px;
+}

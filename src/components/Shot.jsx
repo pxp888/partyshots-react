@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getData } from './helpers';
 
 import './Shot.css';
+import blankimage from '../assets/blankimage.png'
 
 function Shot({code, setBig}) {
 	const [info, setInfo] = useState({
@@ -24,11 +25,16 @@ function Shot({code, setBig}) {
 
 	function handleClick(e) {
 		e.preventDefault();
-		setBig(info.code);
+		let binfo = info;
+		if (binfo.tlink === null){
+			binfo.link = null;
+		}
+		setBig(binfo);
 	}
 	
 	return (
-		<div className='shot' onClick={handleClick}>
+		<div className='shot' onClick={handleClick}>			
+			{!info.tlink ?  <img src={blankimage} alt='blank' />  : <img src={info.tlink} alt={info.filename} /> }
 			<h3>{code}</h3>
 			<p>{info.filename}</p>
 			<p>{info.user}</p>
