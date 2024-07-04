@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+
 import './styles/Bigshot.css';
 
 function Bigshot({link, big, setBig}) {
@@ -14,8 +16,34 @@ function Bigshot({link, big, setBig}) {
 
     function prev(e) {
         e.preventDefault();
-        setBig(big-1);
+        if (big > 0){
+            setBig(big-1);
+        }
     }
+
+    function handleKeyDown(e) {
+        switch(e.key) {
+            case 'ArrowLeft':
+                prev(e);
+                break;
+            case 'ArrowRight':
+                next(e);
+                break;
+            case 'Escape':
+                close(e);
+                break;
+            default:
+                break;
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [big]);
+    
 
     return (
         <div className="bigshot" >

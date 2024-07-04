@@ -64,7 +64,7 @@ function Albumview({code, uname}) {
 							big={big}
 							setBig={setBig} 
 							index={index}
-							
+							killshot={killshot}
 						/> 
 					)
 				})}

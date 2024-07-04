@@ -8,7 +8,7 @@ import Bigshot from './Bigshot';
 import blankimage from '../assets/blankimage.png'
 import xbutton from '../assets/x.webp'
 
-function Shot({code, big, setBig, index}) {
+function Shot({code, big, setBig, index, killshot}) {
 	const [info, setInfo] = useState({
 		code: 'code',
 		filename: 'filename',
@@ -32,13 +32,14 @@ function Shot({code, big, setBig, index}) {
 		setBig(index);
 	}
 
-	function killShot(e) {
+	function xclicked(e) {
 		e.preventDefault();
 		e.stopPropagation();
 		console.log('kill', code);
+
 		postData('api/killshot/', {code: code}, (data) => {
-			if (data.message==='deleted') {this.remove();}
-			else {console.log(data.message);}
+			if (data.message==='deleted') {killshot(code);}
+			else {console.log(data);}
 		});
 	}
 	
@@ -55,7 +56,7 @@ function Shot({code, big, setBig, index}) {
 					<p className="label">created</p>
 					<p>{info.created}</p>
 				</div>
-				<div className="shotkiller" onClick={killShot}>
+				<div className="shotkiller" onClick={xclicked}>
 					<img src={xbutton} alt="close" />
 				</div>
 			</div>

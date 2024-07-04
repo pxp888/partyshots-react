@@ -4,9 +4,9 @@
 
     position: relative;
 
-    border: gray 1px solid;
-    margin: .25rem;
-    padding: 5px;
+    /* border: rgb(148, 148, 148) 1px solid; */
+    margin: 3px;
+    /* padding: 5px; */
 
     background-color: black;
     color: white;
@@ -63,7 +63,7 @@
     width: 16%;
     height: 16%;
     z-index: 3;
-    opacity: .5;
+    opacity: .35;
     background-color: salmon;
     transition: opacity .5s;
 }
