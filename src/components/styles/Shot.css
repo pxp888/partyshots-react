@@ -3,13 +3,12 @@
     height: 250px;
 
     position: relative;
-
-    /* border: rgb(148, 148, 148) 1px solid; */
     margin: 3px;
-    /* padding: 5px; */
 
     background-color: black;
     color: white;
+
+    cursor: pointer;
 }
 
 .shot img {
@@ -62,7 +61,7 @@
     right: 0;
     width: 16%;
     height: 16%;
-    z-index: 3;
+    /* z-index: 3; */
     opacity: .35;
     background-color: salmon;
     transition: opacity .5s;

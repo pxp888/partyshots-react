@@ -41,7 +41,7 @@ function Topbar({setCurrent, uname, setUname, setSword}) {
 					</nav>
 					:
 					<nav>
-						<p>{uname}</p>
+						<p onClick={logoClicked}>{uname}</p>
 						<LogoutButton setUname={setUname} setCurrent={setCurrent} />
 					</nav>
 				}

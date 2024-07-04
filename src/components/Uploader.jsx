@@ -8,7 +8,7 @@ function md5(blob) {
 }
 
 
-function Uploader({code, refreshAlbum}) {
+function Uploader({code, refreshAlbum, info,}) {
 
 	function uploadFile(file) {
 		const chunkSize = 1024 * 1024;
@@ -53,12 +53,57 @@ function Uploader({code, refreshAlbum}) {
 	}
 
 
+	function subscribe(e) {
+		e.preventDefault();
+		postData('api/subscribe/', {code: code}, (data) => {
+			if(data.message==='subscribed'){
+				refreshAlbum();
+			}
+			else {
+				console.log(data);
+			}
+		});
+	}
+
+	function unsubscribe(e) {
+		e.preventDefault();
+		postData('api/unsubscribe/', {code: code}, (data) => {
+			if(data.message==='unsubscribed'){
+				refreshAlbum();
+			}
+			else {
+				console.log(data);
+			}
+		});
+	}
+
+	function deleteAlbum(e) {
+		e.preventDefault();
+		const confirm = window.confirm('Are you sure you want to delete this album?');
+		if (!confirm) {return;}
+
+		postData('api/killbum/', {code: code}, (data) => {
+			if(data.message==='deleted'){
+				refreshAlbum();
+			}
+			else {
+				console.log(data);
+			}
+		});
+	}
+	
 	return (
 		<div id='uploader'>
 			<form className='formdiv' onSubmit={uploadFiles}>
-				<input type="text" placeholder='description' />
 				<input type='file' name='file' multiple/>
-				<button>Upload</button>
+				<input type="text" placeholder='description (optional)' />
+				<button>add to album</button>
+			</form>
+
+			<form className='formdiv' onSubmit={(e)=>{e.preventDefault();}}>
+				{info.status === 'guest' && <button onClick={subscribe}>Subscribe</button>}
+				{info.status === 'subscribed' && <button onClick={unsubscribe}>Leave</button>}
+				{info.status === 'owner' && <button onClick={deleteAlbum}>Delete</button>}
 			</form>
 		</div>
 	);

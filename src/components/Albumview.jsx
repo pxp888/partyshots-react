@@ -13,6 +13,7 @@ function Albumview({code, uname}) {
 		user: 'user',
 		created: 'created',
 		thumbnail: 'thumbnail',
+		status: 'guest',
 	});
 	const [big, setBig] = useState(-1);
 
@@ -20,6 +21,7 @@ function Albumview({code, uname}) {
 		getData('api/getalbum/', {code: code}, (data) => {
 			if (data.code === code){
 				setInfo(data);
+				console.log(data);
 			}
 		});
 
@@ -31,6 +33,9 @@ function Albumview({code, uname}) {
 	}
 
 	function killshot(i) {
+		const confirm = window.confirm('Are you sure you want to delete this file?');
+		if (!confirm) {return;}
+
 		const newshots = {...shots};
 		delete newshots[i];
 		setShots(newshots);
@@ -53,7 +58,9 @@ function Albumview({code, uname}) {
 				</div>
 			</div>
 
-			{uname !== '' && ( <Uploader code={code} refreshAlbum={refreshAlbum} /> )}
+			{uname !== '' && (
+					<Uploader code={code} refreshAlbum={refreshAlbum} info={info} /> 
+			)}
 
 			<div id='shotlist'>
 				{Object.keys(shots).map((shot, index) => {

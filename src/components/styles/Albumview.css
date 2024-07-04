@@ -25,12 +25,22 @@
     font-weight: 200;
 }
 
+#albumedit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 
 #uploader {
     background-color: gainsboro;
     border: gray 1px solid;
     border-radius: 0.25rem;
     margin: 2px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #uploader input  {
@@ -49,7 +59,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 auto;
+    margin: 15px auto;
     padding: 0;
     list-style: none;
 }
