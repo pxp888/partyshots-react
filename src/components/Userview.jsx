@@ -23,6 +23,11 @@ function Userview({sword, setSword, setCurrent, uname}) {
     function createAlbum(event) {
         event.preventDefault();
         const abname = event.target.abname.value;
+        if (abname==='') {
+            const alert = window.alert('Album name cannot be empty');
+            return;
+        }
+
         postData('api/abcreate/', {sword: sword, abname: abname}, (data) => {
             if (data.message==='ok'){
                 setAlbums(data.albums);

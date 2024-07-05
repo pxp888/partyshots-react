@@ -8,7 +8,7 @@ function md5(blob) {
 }
 
 
-function Uploader({code, refreshAlbum, info,}) {
+function Uploader({code, refreshAlbum, info, setCurrent, setSword }) {
 
 	function uploadFile(file) {
 		const chunkSize = 1024 * 1024;
@@ -84,7 +84,8 @@ function Uploader({code, refreshAlbum, info,}) {
 
 		postData('api/killbum/', {code: code}, (data) => {
 			if(data.message==='deleted'){
-				refreshAlbum();
+				setSword(info.user);
+				setCurrent('userview');
 			}
 			else {
 				console.log(data);

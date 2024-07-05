@@ -5,7 +5,7 @@ import Uploader from './Uploader';
 
 import './styles/Albumview.css';
 
-function Albumview({code, uname}) {
+function Albumview({code, uname, setCurrent, setSword}) {
 	const [shots, setShots] = useState({});
 	const [info, setInfo] = useState({
 		name: 'name', 
@@ -59,7 +59,7 @@ function Albumview({code, uname}) {
 			</div>
 
 			{uname !== '' && (
-					<Uploader code={code} refreshAlbum={refreshAlbum} info={info} /> 
+					<Uploader code={code} refreshAlbum={refreshAlbum} info={info} setCurrent={setCurrent} setSword={setSword} /> 
 			)}
 
 			<div id='shotlist'>
