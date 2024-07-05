@@ -1,7 +1,6 @@
 #landing {
     color: gainsboro;
     background-color: rgb(75, 75, 75);
-    /* margin: 1rem 5rem; */
 
     display: flex;
     flex-direction: column;
@@ -87,11 +86,11 @@
     position: absolute;
     top: 10px;
     left: 55vw;
-    width: 55vw;
+    width: 40vw;
 }
 
 .landing2 .lightbox {
-    width: 60%;
+    width: 90%;
     padding: 1rem;
     margin: 1rem;
 }

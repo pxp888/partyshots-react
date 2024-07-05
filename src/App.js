@@ -30,12 +30,11 @@ function App() {
 				setUname={setUname}
 				setSword={setSword}
 			/>
-			<div className="topspacer"></div>
 			{current === 'landing' && <Landing />}
 			{current === 'login' && <Login setCurrent={setCurrent} setUname={setUname} />}
 			{current === 'register' && <Register setCurrent={setCurrent} />}
 			{current === 'userview' && <Userview sword={sword} setSword={setSword} setCurrent={setCurrent} uname={uname} />}
-			{current === 'albumview' && <Albumview code={sword} uname={uname} setCurrent={setCurrent} setSword={setSword} />}
+			{current === 'albumview' && <Albumview code={sword} setCurrent={setCurrent} setSword={setSword} />}
 		</div>
 	);
 }

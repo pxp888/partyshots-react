@@ -31,6 +31,7 @@ function Landing() {
 			<div className="warning">
 				<h1>Nothing is private on this site</h1>
 				<p>Anyone with an album code or username can find files shared on this site.</p>
+				<p>This site is intended to help people collaborate, not for personal storage.</p>
 			</div>
 
 			<div id="howitworks">
