@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getData } from './helpers';
 
 import './styles/Album.css';
+import blankimage from '../assets/blankimage.png'
 
 function Album({code, setSword, setCurrent}) {
     const [info, setInfo] = useState({
@@ -9,7 +10,7 @@ function Album({code, setSword, setCurrent}) {
         code: 'code',
         user: 'user', 
         created: 'created', 
-        thumbnail: 'thumbnail',
+        thumbnail: null,
     });
 
     useEffect(() => {
@@ -27,7 +28,9 @@ function Album({code, setSword, setCurrent}) {
 
     return (
         <div className='album' onClick={handleClick}>
-            <img src={info.thumbnail} alt='album thumbnail' />
+            {!info.thumbnail ? <img src={blankimage} alt='blank' />  
+                : <img src={info.thumbnail} alt='album thumbnail' /> }
+
             <div className="holder">
                 <p className="label">name</p>
                 <p>{info.name}</p>

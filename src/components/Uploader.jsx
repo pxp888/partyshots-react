@@ -102,9 +102,9 @@ function Uploader({code, refreshAlbum, info, setCurrent, setSword }) {
 			</form>
 
 			<form className='formdiv' onSubmit={(e)=>{e.preventDefault();}}>
-				{info.status === 'guest' && <button onClick={subscribe}>Subscribe</button>}
-				{info.status === 'subscribed' && <button onClick={unsubscribe}>Leave</button>}
-				{info.status === 'owner' && <button onClick={deleteAlbum}>Delete</button>}
+				{info.status === 1 && <button onClick={subscribe}>Subscribe</button>}
+				{info.status === 2 && <button onClick={unsubscribe}>Leave</button>}
+				{info.status === 3 && <button onClick={deleteAlbum}>Delete</button>}
 			</form>
 		</div>
 	);

@@ -36,4 +36,5 @@
 .album p {
     margin: .3rem;
     text-align: left;
+    word-wrap: break-word;
 }

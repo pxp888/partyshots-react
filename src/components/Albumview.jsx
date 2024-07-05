@@ -43,6 +43,8 @@ function Albumview({code, uname, setCurrent, setSword}) {
 
 	useEffect(() => { refreshAlbum(); }, [code]);
 
+
+
 	return (
 		<div id='albumview'>
 			<div id="abinfo">
@@ -58,7 +60,7 @@ function Albumview({code, uname, setCurrent, setSword}) {
 				</div>
 			</div>
 
-			{uname !== '' && (
+			{info.status > 1 && (
 					<Uploader code={code} refreshAlbum={refreshAlbum} info={info} setCurrent={setCurrent} setSword={setSword} /> 
 			)}
 

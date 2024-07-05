@@ -42,17 +42,19 @@
 
 .shotinfo {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr;
 }
 
 .shot .label {
     font-weight: 200;
-    text-align: right;
+    text-align: left;
 }
 
 .shot p {
     margin: .3rem;
     text-align: left;
+    overflow: hidden ;
+    word-wrap: break-word;
 }
 
 .shot .shotkiller {
