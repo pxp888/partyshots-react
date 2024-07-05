@@ -41,6 +41,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: baseline;
 }
 
 #uploader input  {
@@ -52,8 +53,9 @@
     padding: 4px 7px;
 }
 
-
-
+#uploader > p {
+    margin: 0;
+}
 
 #shotlist {
     display: flex;

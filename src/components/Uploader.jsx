@@ -2,7 +2,7 @@ import CryptoJS from 'crypto-js';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
-
+import { useState,  } from 'react';
 import { getData, postData } from './helpers';
 
 function md5(blob) {
@@ -12,6 +12,8 @@ function md5(blob) {
 
 
 function Uploader({code, refreshAlbum, info, setCurrent, setSword }) {
+
+	const [togo, setTogo] = useState(0);
 
 	function uploadFile(file) {
 		const chunkSize = 1024 * 1024;
@@ -37,7 +39,8 @@ function Uploader({code, refreshAlbum, info, setCurrent, setSword }) {
 				};
 				postData('api/upload/', msg, (data) => {
 					if(data.message==='up'){
-						refreshAlbum();
+						setTogo(togo - 1);
+						if (togo === 0) refreshAlbum();
 					}
 				});
 			}
@@ -50,6 +53,7 @@ function Uploader({code, refreshAlbum, info, setCurrent, setSword }) {
 		event.preventDefault();
 		const form = event.target;
 		const files = form.file.files;
+		setTogo(files.length);
 		for (let i = 0; i < files.length; i++) {
 			uploadFile(files[i]);
 		}
@@ -133,6 +137,8 @@ function Uploader({code, refreshAlbum, info, setCurrent, setSword }) {
 				<input type="text" placeholder='description (optional)' />
 				<button>add to album</button>
 			</form>
+			
+			{togo > 0 && <p>Uploading {togo} files...</p>}
 
 			<form className='formdiv' onSubmit={(e)=>{e.preventDefault();}}>
 				<button onClick={downloadall}>Download</button>
