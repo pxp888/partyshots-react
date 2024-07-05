@@ -1,6 +1,9 @@
 import CryptoJS from 'crypto-js';
+import JSZip from 'jszip';
+import { saveAs } from 'file-saver';
 
-import { postData } from './helpers';
+
+import { getData, postData } from './helpers';
 
 function md5(blob) {
     const hash = CryptoJS.MD5(blob);
@@ -92,7 +95,37 @@ function Uploader({code, refreshAlbum, info, setCurrent, setSword }) {
 			}
 		});
 	}
+
+	function downloadall(e) {
+		e.preventDefault();
+		const zip = new JSZip();
 	
+		getData('api/get_album_links/', {code: code}, (data) => {
+			let links = data.links;
+			let filenames = data.names;
+	
+			const promises = links.map((link, index) => 
+				fetch(link)
+					.then(response => {
+						if (response.status === 200) return response.blob();
+						throw new Error('Network response was not ok.');
+					})
+					.then(blob => {
+						const filename = filenames[index]; 
+						zip.file(filename, blob); 
+					})
+					.catch(error => console.error('There was a problem with your fetch operation:', error))
+			);
+	
+			Promise.all(promises).then(() => {
+				zip.generateAsync({type:"blob"}).then(function(content) {
+					saveAs(content, info.name+".zip"); 
+				});
+			});
+		});
+	}
+	
+
 	return (
 		<div id='uploader'>
 			<form className='formdiv' onSubmit={uploadFiles}>
@@ -102,6 +135,7 @@ function Uploader({code, refreshAlbum, info, setCurrent, setSword }) {
 			</form>
 
 			<form className='formdiv' onSubmit={(e)=>{e.preventDefault();}}>
+				<button onClick={downloadall}>Download</button>
 				{info.status === 1 && <button onClick={subscribe}>Subscribe</button>}
 				{info.status === 2 && <button onClick={unsubscribe}>Leave</button>}
 				{info.status === 3 && <button onClick={deleteAlbum}>Delete</button>}

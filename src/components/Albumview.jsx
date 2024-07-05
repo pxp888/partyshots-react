@@ -41,7 +41,7 @@ function Albumview({code, uname, setCurrent, setSword}) {
 		setShots(newshots);
 	}
 
-	useEffect(() => { refreshAlbum(); }, [code]);
+	useEffect(() => { refreshAlbum(); }, [code, ]);
 
 
 
