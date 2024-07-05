@@ -40,7 +40,7 @@ function Userview({sword, setSword, setCurrent, uname}) {
 
 
     return (
-        <div>
+        <div id='userview'>
             <p className='msgline'>{message}</p>
 
             {uname === sword && (

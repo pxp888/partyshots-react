@@ -1,81 +1,107 @@
 #landing {
     color: gainsboro;
     background-color: rgb(75, 75, 75);
+    /* margin: 1rem 5rem; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #landing h1 {
-    font-size: 3rem;
+    font-size: 3.3rem;
     font-weight: 300;
-    margin: 2rem;
-    padding: 0;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
 }
-
 
 #landing h2 {
     font-size: 1.6rem;
-    font-weight: 300;
-    margin: 2rem;
-    padding: 0;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-.imdiv {
+#landing .landing1 {
     position: relative;
 }
 
-.imdiv img {
-    width: 70%;
+#landing .imdiv1 {
+    width: 85vw;
+    height: 40vh;
     overflow: hidden;
-    object-fit: fill;
-    object-position: center;
+    display: flex;
+    /* margin-left: 10vw; */
+    padding-left: 10vw;
 }
 
-.mbox {
+#landing .landing1 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    translate: 0 -10%;
+}
+
+.landing1 .mbox {
     position: absolute;
-    top: 30px;
-    left: 10vw;
-    width: 30%;
+    top: 5%;
+    left: 5%;
+    width: 55vw;
+}
+
+#landing h3 {
+    color: salmon
 }
 
 .lightbox {
-    background-color: rgb(219, 219, 219);
-    color: rgb(0, 0, 0);
+    padding: 1rem;
     border-radius: 15px;
-    padding: 20px;
-    border: gray 4px solid;
-}
-
-#howitworks {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.howbox {
-    border-radius: 15px;
-    background-color: gainsboro;
-    color: black;
-    
-    width: 50vw;
-    padding: 20px;
-    margin: 10px;
-}
-
-
-.imdiv2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.imdiv2 > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background-color:rgb(24, 45, 46);
+    border: rgb(78, 78, 78) 1px solid;
+    color: rgb(255, 255, 255);
     text-align: left;
 }
 
-
-.imdiv2 .hbox {
-    margin: 20px;
+#landing .landing2 {
+    position: relative;
 }
+
+#landing .imdiv2 {
+    width: 90vw;
+    height: 60vh;
+    overflow: hidden;
+    display: flex;
+    margin-left: 5vw;
+}
+
+#landing .landing2 img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    translate: 0 -100px;
+}
+
+.landing2 .hbox {
+    position: absolute;
+    top: 10px;
+    left: 55vw;
+    width: 55vw;
+}
+
+.landing2 .lightbox {
+    width: 60%;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+#landing .warning {
+    background-color: salmon;
+    color: black;
+}
+
+#landing .warning h1 {
+    font-size: 2.8rem;
+}
+
