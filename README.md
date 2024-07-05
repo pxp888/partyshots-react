@@ -1,27 +1,43 @@
 # partyShots
 
-![image](./static/images/screens/s1.webp)
+[live site](https://partyshots-react-da4d9cbe0452.herokuapp.com/)
+
+
+![landing page](./screens/screen1.webp)
 
 This is a relatively simple photo sharing application that is meant to enable easy and simple photo sharing. Imagine a party where multiple people are in attendance, and may want to have photos to remember the event. They can either all take photos, or simply use a site like this one where anyone can upload photos and anyone else can get them. All they need is the album code.
 
+## Structure
+
+There are four different components to make this site work. 
+
+* __React front end__ 
+* __Django back end__ 
+* __Postgres database__ - app data 
+* __Amazon S3__ - user file storage
+
+
+
 ## Features
 
-- **User accounts** - The site uses Django's built in authentication for user account management.
-  ![accounts](./static/images/screens/s2.webp)
-- **Album creation** - Users must be logged in to create new albums. However, anyone with the album code or album URL can view albums without logging in. **_There is no assumption of privacy on this site._**
-  ![albums](./static/images/screens/s3.webp)
+![registration](./screens/screen5.webp)
 
+- **User accounts** - The site uses Django's built in authentication for user account management.
+  
+![albums](./screens/screen2.webp) 
+
+- **Album creation** - Users must be logged in to create new albums. However, anyone with the album code or album URL can view albums without logging in. **_There is no assumption of privacy on this site._**
+  
 - **Album Subscription** Users can add other albums to their pages, to easily browse or upload media.
 - **Uploading media** - Users must be logged in to upload files. However, users can upload files to any album, not only their own.
-  ![photos](./static/images/screens/s4.webp)
-
+  
 - **File Support** - There is actually no limitation on the kind of file that may be uploaded, however thumbnail generation currently only works for image files. Video should follow soon.
 - **Removing media** - A user can remove any album they create, and any files they have uploaded. Also, they can remove any file uploaded by another user to an album they have created. In this way they can curate albums.
 - **Descriptions** - By default each photo needs a description, but this can set once and added to uploaded files in batches. The database stores these as tags with a key-value pair, so other features can be added in the future.
 
-## Structure
 
-The site is run on Django which is hosted on heroku. Data storage is handled by a heroku postgres database for metadata, and amazon AWS S3 storage for the files themselves.
+![album](./screens/screen3.webp)
+
 
 ## Information flow
 
