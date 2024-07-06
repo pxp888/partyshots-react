@@ -1,4 +1,4 @@
-import React, { useEffect, useState,  } from 'react';
+import React, { useState } from 'react';
 
 import Topbar from './components/Topbar';
 import Landing from './components/Landing';
@@ -12,28 +12,19 @@ import './App.css';
 
 function App() {
 	const [current, setCurrent] = useState('landing');
-	const [uname, setUname] = useState('');
 	const [sword, setSword] = useState('');
-
-	useEffect(() => {
-		if (current==='newlogin'){
-			setSword(uname);
-			setCurrent('userview');
-		}
-	}, [current, uname]);
 
 	return (
 		<div className="App">
 			<Topbar 
-				setCurrent={setCurrent} 
-				uname={uname} 
-				setUname={setUname}
+				sword={sword}
 				setSword={setSword}
+				setCurrent={setCurrent} 
 			/>
 			{current === 'landing' && <Landing />}
-			{current === 'login' && <Login setCurrent={setCurrent} setUname={setUname} />}
+			{current === 'login' && <Login setSword={setSword} setCurrent={setCurrent} />}
 			{current === 'register' && <Register setCurrent={setCurrent} />}
-			{current === 'userview' && <Userview sword={sword} setSword={setSword} setCurrent={setCurrent} uname={uname} />}
+			{current === 'userview' && <Userview sword={sword} setSword={setSword} setCurrent={setCurrent} />}
 			{current === 'albumview' && <Albumview code={sword} setCurrent={setCurrent} setSword={setSword} />}
 		</div>
 	);

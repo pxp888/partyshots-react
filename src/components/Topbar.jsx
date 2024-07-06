@@ -1,14 +1,20 @@
+import React, { useEffect, useState } from 'react';
+import { getData } from './helpers';
+
 import LogoutButton from './accounts/LogoutButton';
 import Searchline from './Searchline';
+
 
 import './styles/Topbar.css';
 
 
-function Topbar({setCurrent, uname, setUname, setSword}) {
+function Topbar({ sword, setSword, setCurrent}) {
+	const [username, setUsername] = useState('');
+
 	function logoClicked(e) {
 		e.preventDefault();
-		if (uname !== ''){
-			setSword(uname);
+		if (username !== ''){
+			setSword(username);
 			setCurrent('userview');
 		}
 		else {
@@ -26,6 +32,17 @@ function Topbar({setCurrent, uname, setUname, setSword}) {
 		setCurrent('register');
 	}
 
+	useEffect(() => {
+		getData('api/whoami/', {sword: sword}, (data) => {
+			if (data.message==='logged in'){
+				setUsername(data.user);
+			}
+			else {
+				setUsername('');
+			}
+		}, [sword]);
+	});
+
 	return (
 		<>
 			<div id="topbar">
@@ -34,15 +51,15 @@ function Topbar({setCurrent, uname, setUname, setSword}) {
 					setSword={setSword}
 					setCurrent={setCurrent}
 				/>
-				{uname === '' ? 
+				{username === '' ? 
 					<nav>
 						<p onClick={login}>Login</p>
 						<p onClick={register}>register</p>
 					</nav>
 					:
 					<nav>
-						<p onClick={logoClicked}>{uname}</p>
-						<LogoutButton setUname={setUname} setCurrent={setCurrent} />
+						<p onClick={logoClicked}>{username}</p>
+						<LogoutButton setCurrent={setCurrent} />
 					</nav>
 				}
 			</div>

@@ -5,7 +5,7 @@ import './Login.css';
 
 const baseURL = process.env.REACT_APP_API_URL;
 
-function Login({setCurrent, setUname}) {
+function Login({setSword, setCurrent}) {
     const [message, setMessage] = useState('');
 
     function handleSubmit(event) {
@@ -28,8 +28,8 @@ function Login({setCurrent, setUname}) {
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access;
 
                 setMessage('Login Successful');
-                setUname(data.get('username'));
-                setCurrent('newlogin');
+                setSword(user.username);
+                setCurrent('userview');
             }
             else {
                 setMessage('Invalid Credentials');

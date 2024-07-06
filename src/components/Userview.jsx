@@ -5,9 +5,10 @@ import Album from './Album';
 import './styles/Userview.css';
 
 
-function Userview({sword, setSword, setCurrent, uname}) {
+function Userview({sword, setSword, setCurrent, }) {
     const [message, setMessage] = useState('');
     const [albums, setAlbums] = useState({});
+    const [home, setHome] = useState(false);
 
     useEffect(() => {
         getData('api/getalbums/', {sword: sword}, (data) => {
@@ -17,6 +18,9 @@ function Userview({sword, setSword, setCurrent, uname}) {
             else {
                 setMessage(data.message);
             }
+
+            setHome(false);
+            if (sword===data.user) {  setHome(true); }
         });
     }, [sword]);
 
@@ -24,7 +28,7 @@ function Userview({sword, setSword, setCurrent, uname}) {
         event.preventDefault();
         const abname = event.target.abname.value;
         if (abname==='') {
-            const alert = window.alert('Album name cannot be empty');
+            window.alert('Album name cannot be empty');
             return;
         }
 
@@ -43,7 +47,7 @@ function Userview({sword, setSword, setCurrent, uname}) {
         <div id='userview'>
             <p className='msgline'>{message}</p>
 
-            {uname === sword && (
+            {home && (
                 <div id="abmaker">
                     <form className="formdiv" onSubmit={createAlbum}>
                         <label htmlFor="abname">New Album Name: </label>

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { postData } from '../helpers';
 
-function LogoutButton({setUname, setCurrent}){
+function LogoutButton({setCurrent}){
     function logout(e) {
 		e.preventDefault();
 
@@ -10,7 +10,6 @@ function LogoutButton({setUname, setCurrent}){
 				axios.defaults.headers.common['Authorization'] = null;
 				localStorage.removeItem('access_token');
 				localStorage.removeItem('refresh_token');
-				setUname('');
 				setCurrent('landing');
 			});
 	};

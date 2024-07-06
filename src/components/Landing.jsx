@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from 'react';
-
-import { getData, postData } from './helpers';
 
 import './styles/Landing.css';
 import cover1 from '../assets/cover1.webp';
@@ -10,8 +7,6 @@ import cover4 from '../assets/cover4.webp';
 import cover5 from '../assets/cover5.webp';
 
 function Landing() {
-	const [message, setMessage] = useState('');
-
 	
 	return (
 		<div id="landing">
