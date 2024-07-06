@@ -58,12 +58,17 @@
 }
 
 #shotlist {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 15px auto;
     padding: 0;
-    list-style: none;
+    list-style: none; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+    justify-content: center;
+    gap: 5px;
+
 }
 
 @media screen and (max-width: 800px) {

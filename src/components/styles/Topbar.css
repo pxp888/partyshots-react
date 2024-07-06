@@ -59,6 +59,12 @@
 }
 
 
+
+.formdiv input[type="text" i] {
+    height: 28px;
+    box-sizing: border-box;
+}
+
 @media screen and (max-width: 600px) {
     #topbar {
         flex-direction: column;
