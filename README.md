@@ -1,6 +1,6 @@
 # partyShots
 
-[live site](https://partyshots-react-da4d9cbe0452.herokuapp.com/)
+[live site](https://pxp888.github.io/partyshots-react/)
 
 
 ![landing page](./screens/screen1.webp)
@@ -11,8 +11,8 @@ This is a relatively simple photo sharing application that is meant to enable ea
 
 There are four different components to make this site work. 
 
-* __React front end__ 
-* __Django back end__ 
+* __React front end__ - hosted on github pages
+* __Django back end__ - hosted on heroku
 * __Postgres database__ - app data 
 * __Amazon S3__ - user file storage
 
