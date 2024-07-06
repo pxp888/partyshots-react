@@ -13,7 +13,7 @@
 
 .album .holder {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr ;
     align-items: baseline;
     padding: 1rem 0 3rem 0;
 }
@@ -29,12 +29,12 @@
 
 .album .label {
     font-weight: 200;
-    text-align: right;
-    margin: 1rem 1rem;
+    text-align: left;
+    margin: 1rem 1rem 0 1rem;
 }
 
 .album p {
-    margin: .3rem;
+    margin: .5rem 0 1rem 1.5rem;
     text-align: left;
     word-wrap: break-word;
 }
