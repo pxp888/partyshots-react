@@ -1,5 +1,6 @@
 :root {
   background-color: rgb(32, 32, 32);
+  --bright-color: salmon;
 }
 
 .App {
@@ -47,11 +48,11 @@
 }
 
 .formdiv button:focus {
-  background-color: blue;
+  background-color: var(--bright-color);
 }
 
 .formdiv button:hover {
-  background-color: blue;
+  background-color: var(--bright-color);
 }
 
 
