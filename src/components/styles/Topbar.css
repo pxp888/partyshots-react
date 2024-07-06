@@ -12,6 +12,8 @@
     color: white;
     background-color: rgb(48, 48, 48);
     z-index: 10;
+
+    border-bottom: rgb(75, 75, 75) 1px solid;
 }
 
 #topspacer {
@@ -54,4 +56,26 @@
 
 #topbar nav p:hover {
     color: var(--bright-color);
+}
+
+
+@media screen and (max-width: 600px) {
+    #topbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #topbar nav {
+        margin: 0 0 .5rem 0;
+    }
+
+    #topbar .logo {
+        margin: .5rem 0 0 0;
+        font-size: 1.3rem;
+    }
+
+    #topspacer {
+        min-height: 106px;
+    }
+    
 }

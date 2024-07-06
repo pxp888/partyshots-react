@@ -32,8 +32,8 @@ function Album({code, setSword, setCurrent}) {
                 : <img src={info.thumbnail} alt='album thumbnail' /> }
 
             <div className="holder">
-                <p className="label">name</p>
-                <p>{info.name}</p>
+                {/* <p className="label">name</p> */}
+                <p className='albumname'>{info.name}</p>
                 <p className="label">owner</p>
                 <p>{info.user}</p>
                 <p className="label">created</p>

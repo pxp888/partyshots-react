@@ -84,10 +84,10 @@
 .landing2 {
     width: 80%;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    /* grid-template-columns: 3fr 2fr; */
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     align-self: center;
     margin-bottom: 3rem;
-
 }
 
 .imdiv2 {
@@ -109,9 +109,31 @@
     background-color: black;
     color: white;
     text-align: left;
+
 }
 
 .vbox h3 {
     color: salmon;
     font-size: 1.2rem;
+}
+
+
+@media screen and (max-width: 900px) {
+    .landing1 {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        width: 100%;
+    }
+
+    .landing2 {
+        /* display: flex;
+        flex-direction: column-reverse; */
+        align-self: center;
+        width: 100%;
+    }
+
+    .vbox {
+        grid-row-start: 1;
+    }
 }

@@ -132,7 +132,7 @@ function Uploader({code, refreshAlbum, info, setCurrent, setSword }) {
 
 	return (
 		<div id='uploader'>
-			<form className='formdiv' onSubmit={uploadFiles}>
+			<form className='formdiv upform' onSubmit={uploadFiles}>
 				<input type='file' name='file' multiple/>
 				<input type="text" placeholder='description (optional)' />
 				<button>add to album</button>

@@ -38,3 +38,8 @@
     text-align: left;
     word-wrap: break-word;
 }
+
+.albumname {
+    font-size: 1.4rem;
+    color: var(--bright-color)
+}

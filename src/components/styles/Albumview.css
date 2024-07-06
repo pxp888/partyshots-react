@@ -1,4 +1,5 @@
 #abinfo {
+    box-sizing: border-box;
     background-color: gainsboro;
     border: gray 1px solid;
     border-radius: 0.25rem;
@@ -6,8 +7,6 @@
 }
 
 #abinfo > div{
-    width: fit-content;
-
     display: grid;
     grid-template-columns: 10rem 1fr 10rem 1fr;
 
@@ -18,6 +17,7 @@
 #abinfo p {
     margin: .4rem;
     text-align: left;
+    word-wrap: break-word;
 }
 
 #abinfo .label {
@@ -66,3 +66,44 @@
     list-style: none;
 }
 
+@media screen and (max-width: 800px) {
+    #abinfo > div{
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow: hidden;
+    }
+
+    #abinfo .label {
+        text-align: left;
+        font-weight: 200;
+        margin: 1rem 0 0rem 5px;
+    }
+
+    #abinfo p {
+        margin: 0 0 .5rem 1rem;
+        text-align: left;
+        word-wrap: break-word;
+    }
+
+    #uploader {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    #uploader .upform {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #uploader .upform button  {
+        width: 100%;
+    }
+
+    #uploader .upform input  {
+        width: 100%;
+    }
+}

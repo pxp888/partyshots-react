@@ -56,7 +56,7 @@ function Albumview({code, setCurrent, setSword}) {
 					<p className="label">created</p>
 					<p>{info.created}</p>
 					<p className="label">album code</p>
-					<p>{info.code}</p>
+					<p className="abcodep" >{info.code}</p>
 				</div>
 			</div>
 
