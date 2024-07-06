@@ -5,7 +5,14 @@
     flex-direction: column;
     align-items: center;
 
+    /* background-color: gainsboro; */
+}
+
+.logform > div {
     background-color: gainsboro;
+    margin-top: 4rem;
+    padding: 4rem;
+
 }
 
 .logform form {
