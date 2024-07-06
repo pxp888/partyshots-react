@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/partyshots-react/static/css/main.9dd06dee.css",
-    "main.js": "/partyshots-react/static/js/main.50587c96.js",
+    "main.css": "/partyshots-react/static/css/main.29372ba6.css",
+    "main.js": "/partyshots-react/static/js/main.69784001.js",
     "static/js/453.249e9e65.chunk.js": "/partyshots-react/static/js/453.249e9e65.chunk.js",
     "static/media/cover3.webp": "/partyshots-react/static/media/cover3.c1b859aecb00adf1582d.webp",
     "static/media/cover4.webp": "/partyshots-react/static/media/cover4.bf7ba4815e0d6da3bc03.webp",
@@ -10,12 +10,12 @@
     "static/media/cover5.webp": "/partyshots-react/static/media/cover5.bab0f3d7caa477014d52.webp",
     "index.html": "/partyshots-react/index.html",
     "static/media/x.webp": "/partyshots-react/static/media/x.1ab93d2cb707268a44ac.webp",
-    "main.9dd06dee.css.map": "/partyshots-react/static/css/main.9dd06dee.css.map",
-    "main.50587c96.js.map": "/partyshots-react/static/js/main.50587c96.js.map",
+    "main.29372ba6.css.map": "/partyshots-react/static/css/main.29372ba6.css.map",
+    "main.69784001.js.map": "/partyshots-react/static/js/main.69784001.js.map",
     "453.249e9e65.chunk.js.map": "/partyshots-react/static/js/453.249e9e65.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9dd06dee.css",
-    "static/js/main.50587c96.js"
+    "static/css/main.29372ba6.css",
+    "static/js/main.69784001.js"
   ]
 }
