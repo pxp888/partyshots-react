@@ -19,12 +19,12 @@ function Landing() {
 			<h2>because we don't all have to take the picture.</h2>
 			
 			<div className="landing1">
-				<div className="imdiv1">
-					<img src={cover3} alt="landingshot" />
-				</div>
 				<div className="mbox lightbox">
 					<h3>Get the party started</h3>
 					<p>partyShots is a photo sharing app that allows you to share photos with your friends and family. Create an album and invite your friends to join. Everyone can share their photos and videos in one place.</p>
+				</div>
+				<div className="imdiv1">
+					<img src={cover3} alt="landingshot" />
 				</div>
 			</div>
 
