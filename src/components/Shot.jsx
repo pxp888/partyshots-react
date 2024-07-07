@@ -47,7 +47,7 @@ function Shot({code, big, setBig, index, killshot}) {
 		<>
 		<div className='shot' onClick={shotClicked}>			
 			{!info.tlink ?  <img src={blankimage} alt='blank' />  : <img src={info.tlink} alt={info.filename} /> }
-			<div className='holder'>
+			<div className='shotholder'>
 				<div className='shotinfo'>
 					<p className="label">filename</p>
 					<p>{info.filename}</p>
@@ -62,9 +62,9 @@ function Shot({code, big, setBig, index, killshot}) {
 			</div>
 		</div>
 		{big === index && ( <Bigshot link={info.link} big={big} setBig={setBig} /> )}
-
 		</>
 	);
 }
 
 export default Shot;
+
