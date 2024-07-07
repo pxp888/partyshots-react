@@ -47,10 +47,12 @@ function Topbar({ sword, setSword, setCurrent}) {
 		<>
 			<div id="topbar">
 				<p className="logo" onClick={logoClicked}>partyShots</p>
+
 				<Searchline 
 					setSword={setSword}
 					setCurrent={setCurrent}
 				/>
+				
 				{username === '' ? 
 					<nav>
 						<p onClick={login}>Login</p>

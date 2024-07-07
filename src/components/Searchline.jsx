@@ -26,10 +26,10 @@ function Searchline({setSword, setCurrent }) {
 	}
 	
 	return (
-		<div id="searchDiv" className='formdiv'>
-			<form onSubmit={search}>
+		<div id="searchDiv">
+			<form onSubmit={search} className='searchform'>
 				<input type="text" placeholder="Search..." onChange={()=>{setMessage('')}}/>
-				<button>Search</button>
+				<button className='btn'>Search</button>
 			</form>
 			{message!=='' && <p>{message}</p>}
 		</div>
