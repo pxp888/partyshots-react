@@ -43,3 +43,9 @@
     font-size: 1.4rem;
     color: var(--bright-color)
 }
+
+@media screen and (max-width: 650px) {
+    .album {
+        width: 100%;
+    }
+}

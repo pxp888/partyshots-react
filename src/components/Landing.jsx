@@ -37,7 +37,7 @@ function Landing() {
 				</div>
 				<div className="vbox">
 					<h3>Create an album</h3>
-					<p>You just need to be logged in. </p>
+					<p>Just type the name and click create.</p>
 					<h3>maybe add some photos,</h3>
 					<p>(it is a photo sharing site.)</p>
 					<h3>share the album code, or your username</h3>
@@ -49,7 +49,7 @@ function Landing() {
 
 			<p className='title2'>albums and photos</p>
 
-			<div className="landing1">
+			<div className="landing3">
 				<div className="hbox">
 					<h3>Uploads</h3>
 					<p>Each album and file has an owner.</p>
@@ -58,12 +58,17 @@ function Landing() {
 					<h3>deletions</h3>
 					<p>An album can only be deleted by its owner.</p>
 					<p>a file can only be removed by the owner, or the album owner.</p>
-
-
 				</div>
 				<div className="imdiv1">
 					<img src={cover5} alt="landingshot" />
 				</div>
+			</div>
+
+			<div className="footer">
+				<ul>
+					<li><a href="#">about</a></li>
+					<li><a href="#">contact</a></li>
+				</ul>
 			</div>
 
 		</div>
