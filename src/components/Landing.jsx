@@ -37,7 +37,7 @@ function Landing() {
 				</div>
 				<div className="vbox">
 					<h3>Create an album</h3>
-					<p>Just type the name and click create.</p>
+					<p>Just type the album name and click create.</p>
 					<h3>maybe add some photos,</h3>
 					<p>(it is a photo sharing site.)</p>
 					<h3>share the album code, or your username</h3>
@@ -66,11 +66,10 @@ function Landing() {
 
 			<div className="footer">
 				<ul>
-					<li><a href="#">about</a></li>
+					<li><a href="https://github.com/pxp888/partyshots-react" target="_blank">about</a></li>
 					<li><a href="#">contact</a></li>
 				</ul>
 			</div>
-
 		</div>
 	);
 }

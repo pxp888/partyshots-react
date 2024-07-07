@@ -130,6 +130,11 @@
     color: gainsboro;
     text-decoration: none;
     margin: 10px;
+    transition: color 0.25s;
+}
+
+.footer a:hover {
+    color: salmon;
 }
 
 .footer ul {

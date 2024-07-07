@@ -55,7 +55,7 @@ function Topbar({ sword, setSword, setCurrent}) {
 				
 				{username === '' ? 
 					<nav>
-						<p onClick={login}>Login</p>
+						<p onClick={login}>login</p>
 						<p onClick={register}>register</p>
 					</nav>
 					:

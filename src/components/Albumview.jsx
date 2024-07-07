@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getData } from './helpers';
+import { getData, postData } from './helpers';
 import Shot from './Shot';
 import Uploader from './Uploader';
 
@@ -21,7 +21,6 @@ function Albumview({code, setCurrent, setSword}) {
 		getData('api/getalbum/', {code: code}, (data) => {
 			if (data.code === code){
 				setInfo(data);
-				console.log(data);
 			}
 		});
 
@@ -36,9 +35,19 @@ function Albumview({code, setCurrent, setSword}) {
 		const confirm = window.confirm('Are you sure you want to delete this file?');
 		if (!confirm) {return;}
 
-		const newshots = {...shots};
-		delete newshots[i];
-		setShots(newshots);
+		postData('api/killshot/', {code: i}, (data) => {
+			if (data.message==='deleted') {
+				const newshots = {...shots};
+				delete newshots[i];
+				setShots(newshots);
+			}
+			else {
+				console.log(data);
+				window.alert(data.message);
+			}
+		});
+
+		
 	}
 
 	useEffect(() => { refreshAlbum(); }, [code, ]);

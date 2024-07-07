@@ -36,11 +36,7 @@ function Shot({code, big, setBig, index, killshot}) {
 		e.preventDefault();
 		e.stopPropagation();
 		console.log('kill', code);
-
-		postData('api/killshot/', {code: code}, (data) => {
-			if (data.message==='deleted') {killshot(code);}
-			else {console.log(data);}
-		});
+		killshot(code);
 	}
 	
 	return (
@@ -61,7 +57,7 @@ function Shot({code, big, setBig, index, killshot}) {
 				</div>
 			</div>
 		</div>
-		{big === index && ( <Bigshot link={info.link} big={big} setBig={setBig} /> )}
+		{big === index && ( <Bigshot info={info} big={big} setBig={setBig} /> )}
 		</>
 	);
 }

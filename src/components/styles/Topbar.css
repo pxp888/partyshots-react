@@ -49,7 +49,7 @@
 #topbar nav p {
     cursor: pointer;
     transition: color 0.25s;
-    margin: 7px 10px;
+    margin: 7px 16px;
 }
 
 #topbar nav p:hover {
