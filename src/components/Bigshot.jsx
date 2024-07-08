@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { postData } from './helpers';
 
 import './styles/Bigshot.css';
 
@@ -38,6 +37,16 @@ function Bigshot({info, big, setBig}) {
 		setBig(-1);
 	}
 
+	function download(e) {
+		e.preventDefault();
+		const element = document.createElement('a');
+		element.href = info.link;
+		element.download = info.filename || 'download';
+		document.body.appendChild(element);
+		element.click();
+		document.body.removeChild(element);
+	}
+
 	function handleKeyDown(e) {
 		switch(e.key) {
 			case 'ArrowLeft':
@@ -53,6 +62,8 @@ function Bigshot({info, big, setBig}) {
 				break;
 		}
 	}
+
+	
 
 	useEffect(() => {
 		window.addEventListener('keydown', handleKeyDown);
@@ -74,7 +85,7 @@ function Bigshot({info, big, setBig}) {
 				<p>{info.user}</p>
 				<p className="label">created</p>
 				<p>{info.created}</p>
-				<button className="btn">download</button>
+				<button className="btn" onClick={download}>download</button>
 			</div>			
 		</div>
 	);
