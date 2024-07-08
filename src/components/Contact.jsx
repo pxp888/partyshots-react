@@ -13,7 +13,7 @@ function Contact({}) {
 		const message = form.mess.value;
 		const data = { name, email, message };
 
-		axios.post('http://52.56.34.125/status', data).then((response) => {
+		axios.post('https://52.56.34.125/status', data).then((response) => {
 			console.log(response.data.event);
 			if (response.data.event === 'message'){
 				setMsg("Message sent! We'll get back to you soon.")
