@@ -1,5 +1,5 @@
 .contactholder {
-    height: 100vh;
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +13,6 @@
     grid-template-columns: 1fr;
 
     width: 60%;
-    padding-bottom: 2rem;
 }
 
 .contactform {
@@ -23,7 +22,7 @@
     text-align: left;
     
     padding: 20px;
-    margin: 20px;
+    margin: 0px;
     border: 2px solid #ccc;
     border-radius: 5px;
     background-color: white;
@@ -50,12 +49,23 @@
     border-radius: 5px; 
 }
 
-.contactbox h1 {
+.contactholder h1 {
     text-align: left;
     margin: 20px;
-    margin-bottom: 0;   
+    color: salmon;
 }
 
 .contactform .btn {
     margin-top: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .contactbox {
+        width: 100%;
+    }
+
+    .contactform {
+        margin: 0;
+    }
+    
 }

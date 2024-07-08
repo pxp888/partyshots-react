@@ -27,8 +27,8 @@ function Contact({}) {
 
 	return (
 		<div className="contactholder">
-			<div className='contactbox'>
 			<h1>{msg}</h1>
+			<div className='contactbox'>
 				<form className="contactform" onSubmit={submitForm}>
 					<label htmlFor="name">Name:</label>
 					<input type="text" name="name" />
