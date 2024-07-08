@@ -8,7 +8,7 @@ import Bigshot from './Bigshot';
 import blankimage from '../assets/blankimage.png'
 import xbutton from '../assets/x.webp'
 
-function Shot({code, big, setBig, index, killshot}) {
+function Shot({code, big, setBig, index, killshot, tshots}) {
 	const [info, setInfo] = useState({
 		code: 'code',
 		filename: 'filename',
@@ -57,7 +57,7 @@ function Shot({code, big, setBig, index, killshot}) {
 				</div>
 			</div>
 		</div>
-		{big === index && ( <Bigshot info={info} big={big} setBig={setBig} /> )}
+		{big === index && ( <Bigshot info={info} big={big} setBig={setBig} tshots={tshots} /> )}
 		</>
 	);
 }

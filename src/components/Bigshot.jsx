@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import './styles/Bigshot.css';
 
-function Bigshot({info, big, setBig}) {
+function Bigshot({info, big, setBig, tshots}) {
 	
 	function close(e) {
 		e.preventDefault();
@@ -11,7 +11,9 @@ function Bigshot({info, big, setBig}) {
 
 	function next(e) {
 		e.preventDefault();
-		setBig(big+1);
+		if (big < tshots-1){
+			setBig(big+1);
+		}
 	}
 
 	function prev(e) {
@@ -24,8 +26,11 @@ function Bigshot({info, big, setBig}) {
 	function imageClicked(e) {
 		e.preventDefault();
 		let x = e.clientX / window.innerWidth;
+		
 		if (x > .75) {
-			setBig(big+1);
+			if (big < tshots-1){
+				setBig(big+1);
+			}
 			return;
 		}
 		if (x < .25) {

@@ -83,6 +83,7 @@ function Albumview({code, setCurrent, setSword}) {
 							setBig={setBig} 
 							index={index}
 							killshot={killshot}
+							tshots={Object.keys(shots).length}
 						/> 
 					)
 				})}
