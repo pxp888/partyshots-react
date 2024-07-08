@@ -30,11 +30,11 @@ function Contact({}) {
 			<h1>{msg}</h1>
 			<div className='contactbox'>
 				<form className="contactform" onSubmit={submitForm}>
-					<label htmlFor="name">Name:</label>
-					<input type="text" name="name" />
-					<label htmlFor="email">Email:</label>
-					<input type="email" name="email" />
-					<label htmlFor="message">Message:</label>
+					<label htmlFor="contactname">Name:</label>
+					<input type="text" name="name" id="contactname"/>
+					<label htmlFor="contactemail">Email:</label>
+					<input type="email" name="email" id="contactemail" />
+					<label htmlFor="mess">Message:</label>
 					<textarea name="mess" id="mess" onChange={()=>{setMsg('Drop us a line')}} ></textarea>
 					<button className='btn'>Submit</button>
 				</form>
