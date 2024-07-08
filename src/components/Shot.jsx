@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getData, postData } from './helpers';
+import { getData } from './helpers';
 
 import './styles/Shot.css';
 

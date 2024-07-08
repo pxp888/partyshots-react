@@ -1,4 +1,6 @@
 
+
+
 import './styles/Landing.css';
 import cover1 from '../assets/cover1.webp';
 import cover2 from '../assets/cover2.webp';
@@ -6,7 +8,7 @@ import cover3 from '../assets/cover3.webp';
 import cover4 from '../assets/cover4.webp';
 import cover5 from '../assets/cover5.webp';
 
-function Landing() {
+function Landing({ setCurrent }) {
 	
 	return (
 		<div id="landing">
@@ -67,7 +69,9 @@ function Landing() {
 			<div className="footer">
 				<ul>
 					<li><a href="https://github.com/pxp888/partyshots-react" target="_blank">about</a></li>
-					<li><a href="#">contact</a></li>
+					<li><a href="#" onClick={()=>{
+						setCurrent('contact');
+					}} >contact</a></li>
 				</ul>
 			</div>
 		</div>
